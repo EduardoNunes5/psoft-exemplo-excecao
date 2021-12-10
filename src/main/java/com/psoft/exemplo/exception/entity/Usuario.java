@@ -31,6 +31,13 @@ public class Usuario {
         this.idade = idade;
     }
 
+    public Usuario(String nome, String username, String password, Integer idade) {
+        this.nome = nome;
+        this.username = username;
+        this.password = password;
+        this.idade = idade;
+    }
+
     public Long getId() {
         return id;
     }

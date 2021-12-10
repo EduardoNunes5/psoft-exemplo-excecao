@@ -2,27 +2,19 @@ package com.psoft.exemplo.exception.dto;
 
 public class UsuarioRequestDTO {
 
-    private int id;
-
     private String nome;
 
-    private String idade;
+    private String username;
 
-    public UsuarioRequestDTO() {
-    }
+    private String password;
 
-    public UsuarioRequestDTO(int id, String nome, String idade) {
-        this.id = id;
+    private Integer idade;
+
+    public UsuarioRequestDTO(String nome, String username, String password, Integer idade) {
         this.nome = nome;
+        this.username = username;
+        this.password = password;
         this.idade = idade;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getNome() {
@@ -33,11 +25,27 @@ public class UsuarioRequestDTO {
         this.nome = nome;
     }
 
-    public String getIdade() {
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Integer getIdade() {
         return idade;
     }
 
-    public void setIdade(String idade) {
+    public void setIdade(Integer idade) {
         this.idade = idade;
     }
 }
