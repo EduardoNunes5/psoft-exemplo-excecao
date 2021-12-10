@@ -6,11 +6,18 @@ para mostrar uma das formas de tratamentos de exceção utilizando java com spri
 Algumas anotações fornecidas pelo spring que serão utilizadas:
 
 ```java
+import org.springframework.web.bind.annotation.ExceptionHandler;
+
 @GetMapping
 @PostMapping
 @DeleteMapping
 @PutMapping
+@RestControllerAdvice 
+@ExceptionHandler 
 ```
+@RestControllerAdvice utilizada para criar um tratador de exceções de controllers **global ou subconjunto de controllers**  
+@ExceptionHandler  utilizada para tratar exceções lançadas durante a execução de um método de um controlador
+
 Todas elas versões curtas para o @RequestMapping em suas respectivas formas:
 
 ```java
