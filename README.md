@@ -87,4 +87,24 @@ public class UsuarioNaoEncontradoException extends EntityNotFoundException {
 
 ```
 
+As exceções estão sendo lançadas em seus respectivos services, ex:
+```java
+
+    // se o usuário existir, ele é retornado, senão (orElseThrow) nova exceção é lançada
+public Usuario retornaSeExiste(String username){
+    return this.usuarioRepository.findByUsername(username)
+            .orElseThrow(() -> new UsuarioNaoEncontradoException(username));
+}
+
+public Usuario retornaSeExiste(Long id){
+    return this.usuarioRepository.findById(id)
+            .orElseThrow(() -> new UsuarioNaoEncontradoException(id));
+}
+```
+Dessa forma, qualquer service que precisar de usuário não vai ter que verificar se ele existe,
+pois o service de usuário faz essa verificação e lança a exceção, que
+será tratada na classe anotada com @RestControllerAdvice pelo método responsável daquele tipo de exceção
+anotado com @ExceptionHandler, e então retornará uma resposta ao cliente com o código
+de retorno especificado no @ResponseStatus.
+
 URL SWAGGER = http://localhost:8080/swagger-ui/index.html
