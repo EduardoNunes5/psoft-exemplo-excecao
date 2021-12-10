@@ -21,7 +21,8 @@ public class ExceptionHandlerAdvice {
 
     @ExceptionHandler(EntityExistsException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public CustomResponseError trataNaoEncontrado(EntityExistsException enf){
+    public CustomResponseError trataJaExiste(EntityExistsException enf){
         return new CustomResponseError(enf.getMessage());
     }
+
 }

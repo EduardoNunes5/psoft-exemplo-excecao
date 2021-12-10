@@ -12,3 +12,4 @@ public class UsuarioNaoEncontradoException extends EntityNotFoundException {
         super(String.format("Usuario com o id %d não encontrado", id));
     }
 }
+

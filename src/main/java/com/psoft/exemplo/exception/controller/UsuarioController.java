@@ -27,4 +27,5 @@ public class UsuarioController {
         return this.usuarioService.buscaPorId(id);
     }
 
+
 }
