@@ -23,7 +23,7 @@ Todas elas versões curtas para o @RequestMapping em suas respectivas formas:
 @ExceptionHandler  - utilizada para tratar exceções lançadas durante a execução de um método de um controlador
 
 
-Será mostrada outra forma de lidar com as resposta HTTP sem utilizar explicitamente o ResponseEntity.
+Será mostrada outra forma de lidar com as respostas HTTP sem utilizar explicitamente o ResponseEntity.
 Podemos definir o código da resposta através da anotação @ResponseStatus.
 
 ```java
