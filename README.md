@@ -6,8 +6,6 @@ para mostrar uma das formas de tratamentos de exceção utilizando java com spri
 Algumas anotações fornecidas pelo spring que serão utilizadas:
 
 ```java
-import org.springframework.web.bind.annotation.ExceptionHandler;
-
 @GetMapping
 @PostMapping
 @DeleteMapping
@@ -21,7 +19,6 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 Todas elas versões curtas para o @RequestMapping em suas respectivas formas:
 
 ```java
-
 @RequestMapping(value = "", method = HttpMethod.GET)
 @RequestMapping(value = "", method = HttpMethod.POST)
 @RequestMapping(value = "", method = HttpMethod.DELETE)
@@ -37,13 +34,11 @@ Podemos definir o código da resposta através da anotação @ResponseStatus.
  .
  . Trocando por exemplo:
  */
-
 @RequestMapping(value = "/", method = HttpMethod.POST)
 public ResponseEntity<?> salvar(@RequestBody Object dto){
     return new ResponseEntity<>(dto,HttpStatus.CREATED);
 }
 //por:
-
 @PostMapping
 @ResponseStatus(HttpStatus.CREATED)
 public Object salvar(@RequestBody Object dto){
