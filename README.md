@@ -10,20 +10,18 @@ Algumas anotações fornecidas pelo spring que serão utilizadas:
 @PostMapping
 @DeleteMapping
 @PutMapping
-@RestControllerAdvice 
-@ExceptionHandler 
 ```
-@RestControllerAdvice utilizada para criar um tratador de exceções de controllers **global ou subconjunto de controllers**  
-@ExceptionHandler  utilizada para tratar exceções lançadas durante a execução de um método de um controlador
-
 Todas elas versões curtas para o @RequestMapping em suas respectivas formas:
-
 ```java
 @RequestMapping(value = "", method = HttpMethod.GET)
 @RequestMapping(value = "", method = HttpMethod.POST)
 @RequestMapping(value = "", method = HttpMethod.DELETE)
 @RequestMapping(value = "", method = HttpMethod.PUT)
 ```  
+
+@RestControllerAdvice - utilizada para criar um tratador de exceções de controllers **global ou subconjunto de controllers**  
+@ExceptionHandler  - utilizada para tratar exceções lançadas durante a execução de um método de um controlador
+
 
 Será mostrada outra forma de lidar com as resposta HTTP sem utilizar explicitamente o ResponseEntity.
 Podemos definir o código da resposta através da anotação @ResponseStatus.
