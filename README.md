@@ -50,4 +50,23 @@ public Object salvar(@RequestBody Object dto){
 
 ```
 
+As exceções estão no pacote exception, a classe que contém a anotação @RestControllerAdvice é a ExceptionHandlerAdvice.
+Então qualquer requisição passada para os controllers, será tratada por lá, através de seus métodos que contém a anotação @ExceptionHandling
+```java
+//Anotação que faz com que essa classe tratadora de exceções seja
+//conhecida globalmente entre todos os controllers
+@RestControllerAdvice 
+public class ExceptionHandlerAdvice {
+
+    //qualquer exceção lançada de classe que estenda EntityNotFound, será tratada aqui
+    //retornando status 404 (NOT_FOUND) e a mensagem que foi repassada para o construtor
+    // do EntityNotFoundException será colocada no objeto CustomErrorResponse e entregue ao cliente.
+    @ExceptionHandler(EntityNotFoundException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public CustomResponseError trataNaoEncontrado(EntityNotFoundException enf){
+        return new CustomResponseError(enf.getMessage());
+    }
+
+```
+
 URL SWAGGER = http://localhost:8080/swagger-ui/index.html
