@@ -51,7 +51,7 @@ public Object salvar(@RequestBody Object dto){
 ```
 
 As exceções estão no pacote exception, a classe que contém a anotação @RestControllerAdvice é a ExceptionHandlerAdvice.
-Então qualquer requisição passada para os controllers, será tratada por lá, através de seus métodos que contém a anotação @ExceptionHandling
+Então qualquer requisição passada para os controllers será tratada por lá através de seus métodos que contém a anotação @ExceptionHandling
 ```java
 //Anotacao que faz com que essa classe seja
 //conhecida globalmente entre todos os controllers
