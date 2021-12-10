@@ -43,9 +43,9 @@ public Object salvar(@RequestBody Object dto){
     return dto;
 }
 
-// por padrão, se não usar nenhuma anotação para identificar a 
-// resposta, será 200 (OK). Assim, nossa resposta http será criada
-// baseada no objeto de retorno e no código de status passado pela anotação.
+// por padrao, se nao usar nenhuma anotacao para identificar a 
+// resposta, sera 200 (OK). Assim, nossa resposta http sera criada
+// baseada no objeto de retorno e no codigo de status passado pela anotacao ou codigo 200
 
 
 ```
@@ -53,7 +53,7 @@ public Object salvar(@RequestBody Object dto){
 As exceções estão no pacote exception, a classe que contém a anotação @RestControllerAdvice é a ExceptionHandlerAdvice.
 Então qualquer requisição passada para os controllers, será tratada por lá, através de seus métodos que contém a anotação @ExceptionHandling
 ```java
-//Anotação que faz com que essa classe tratadora de exceções seja
+//Anotacao que faz com que essa classe seja
 //conhecida globalmente entre todos os controllers
 @RestControllerAdvice 
 public class ExceptionHandlerAdvice {
@@ -63,9 +63,27 @@ public class ExceptionHandlerAdvice {
     // do EntityNotFoundException será colocada no objeto CustomErrorResponse e entregue ao cliente.
     @ExceptionHandler(EntityNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    public CustomResponseError trataNaoEncontrado(EntityNotFoundException enf){
+    public CustomResponseError trataNaoEncontrado(EntityNotFoundException enf) {
         return new CustomResponseError(enf.getMessage());
     }
+}
+
+.
+.
+.
+
+// como essa classe estende EntityNotFound, ela sera tratada no metodo trataNaoEncontrado
+// caso seja lancada uma excecao deste tipo
+public class UsuarioNaoEncontradoException extends EntityNotFoundException {
+
+    public UsuarioNaoEncontradoException(String username) {
+        super(String.format("Usuario %s não encontrado", username));
+    }
+
+    public UsuarioNaoEncontradoException(Long id) {
+        super(String.format("Usuario com o id %d não encontrado", id));
+    }
+}
 
 ```
 
